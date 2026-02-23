@@ -7,8 +7,6 @@
 
     <!-- DaisyUI  -->
      <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
     <!-- Google Fonts  -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -58,138 +56,140 @@
             <section class="available-jobs">
                 <h3 class="text-[#002c5cFF] text-sm font-bold">Availble Jobs</h3>
                 <div class="status-button">
-                    <button class="btn btn-primary" id="all-filter-btn">All</button>
-                    <button class="btn" id="interview-filter-btn">Interview</button>
-                    <button class="btn" id="rejected-filter-btn">Rejected</button>
+                    <button onclick="toggleBtn('all-filter-btn')" class="btn btn-primary" id="all-filter-btn">All</button>
+                    <button onclick="toggleBtn('interview-filter-btn')" class="btn" id="interview-filter-btn">Interview</button>
+                    <button onclick="toggleBtn('rejected-filter-btn')" class="btn" id="rejected-filter-btn">Rejected</button>
                 </div>
             </section>
+            <section id="filtered-section" class="hidden">
 
+            </section>
             <section id="jobs-card" class="space-y-5">
                     <div class="card card-border bg-base-100">
                         <div class="card-body">
-                            <h2 class="card-title text-[#002c5cFF] font-bold">Mobile First Corp</h2>
-                            <p class=" text-gray-500 font-normal text-base">React Native Developer</p>
-                            <p class="text-gray-500 font-normal text-sm"> Remote • Full-time • $130,000 - $175,000</p>
-                         <div class="card-actions justify-start">
-                        <button class="btn text-[#002c5cFF]">NOT APPLIED</button>
+                            <h2 class="heading card-title text-[#002c5cFF] font-bold">Mobile First Corp</h2>
+                            <p class="sub-heading text-gray-500 font-normal text-base">React Native Developer</p>
+                            <p class="price text-gray-500 font-normal text-sm"> Remote • Full-time • $130,000 - $175,000</p>
+                         <div class="application-btn card-actions justify-start">
+                        <button class="status-btn btn text-[#002c5cFF]">NOT APPLIED</button>
                     </div>
-                     <p class="text-gray-500 font-normal text-sm">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+                     <p class="description text-gray-500 font-normal text-sm">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
                     <div class="flex gap-3">
-                        <button class="btn btn-outline btn-success">INTERVIEW</button>
-                        <button class="btn btn-outline btn-secondary">REJECTED</button>
+                        <button class="interview-btn btn btn-outline btn-success">INTERVIEW</button>
+                        <button class="reject-btn btn btn-outline btn-secondary">REJECTED</button>
                     </div>
                 </div>
                     </div>
                     <div class="card card-border bg-base-100">
                         <div class="card-body">
-                            <h2 class="card-title text-[#002c5cFF] font-bold">WebFlow Agency</h2>
-                            <p class=" text-gray-500 font-normal text-base">Web Designer & Developer</p>
-                            <p class="text-gray-500 font-normal text-sm"> Los Angeles, CA
+                            <h2 class="heading card-title text-[#002c5cFF] font-bold">WebFlow Agency</h2>
+                            <p class="sub-heading text-gray-500 font-normal text-base">Web Designer & Developer</p>
+                            <p class="price text-gray-500 font-normal text-sm"> Los Angeles, CA
  • 
 Part-time 
 •
  $80,000 - $120,000</p>
-                         <div class="card-actions justify-start">
-                        <button class="btn text-[#002c5cFF]">NOT APPLIED</button>
+                         <div class="application-btn card-actions justify-start">
+                        <button class="status-btn btn text-[#002c5cFF]">NOT APPLIED</button>
                     </div>
-                     <p class="text-gray-500 font-normal text-sm">Create stunning web experiences for high-profile clients. Must have portfolio and experience with modern web design trends.</p>
+                     <p class="description text-gray-500 font-normal text-sm">Create stunning web experiences for high-profile clients. Must have portfolio and experience with modern web design trends.</p>
                     <div class="flex gap-3">
-                        <button class="btn btn-outline btn-success">Interview</button>
-                    <button class="btn btn-outline btn-secondary">REJECTED</button>
+                        <button class="interview-btn btn btn-outline btn-success">INTERVIEW</button>
+                        <button class="reject-btn btn btn-outline btn-secondary">REJECTED</button>
                     </div>
                 </div>
                     </div>
                     <div class="card card-border bg-base-100">
                         <div class="card-body">
-                            <h2 class="card-title text-[#002c5cFF] font-bold">DataViz Solutions</h2>
-                            <p class=" text-gray-500 font-normal text-base">Data Visualization Specialist</p>
-                            <p class="text-gray-500 font-normal text-sm"> Boston, MA 
+                            <h2 class="heading card-title text-[#002c5cFF] font-bold">DataViz Solutions</h2>
+                            <p class="sub-heading text-gray-500 font-normal text-base">Data Visualization Specialist</p>
+                            <p class="price text-gray-500 font-normal text-sm"> Boston, MA 
 •
  Full-time
  •
  $125,000 - $165,000</p>
-                         <div class="card-actions justify-start">
-                        <button class="btn text-[#002c5cFF]">NOT APPLIED</button>
+                         <div class="application-btn card-actions justify-start">
+                        <button class="status-btn btn text-[#002c5cFF]">NOT APPLIED</button>
                     </div>
-                     <p class="text-gray-500 font-normal text-sm">Transform complex data into compelling visualizations. Required skills: D3.js, React, and strong analytical thinking.</p>
+                     <p class="description text-gray-500 font-normal text-sm">Transform complex data into compelling visualizations. Required skills: D3.js, React, and strong analytical thinking.</p>
                     <div class="flex gap-3">
-                        <button class="btn btn-outline btn-success">INTERVIEW</button>
-                    <button class="btn btn-outline btn-secondary">REJECTED</button>
+                        <button class="interview-btn btn btn-outline btn-success">INTERVIEW</button>
+                        <button class="reject-btn btn btn-outline btn-secondary">REJECTED</button>
                     </div>
                 </div>
                     </div>
                     <div class="card card-border bg-base-100">
                         <div class="card-body">
-                            <h2 class="card-title text-[#002c5cFF] font-bold">CloudFirst Inc</h2>
-                            <p class=" text-gray-500 font-normal text-base">Backend Developer</p>
-                            <p class="text-gray-500 font-normal text-sm"> Remote • Full-time • $130,000 - $175,000</p>
-                         <div class="card-actions justify-start">
-                        <button class="btn text-[#002c5cFF]">NOT APPLIED</button>
+                            <h2 class="heading card-title text-[#002c5cFF] font-bold">CloudFirst Inc</h2>
+                            <p class="sub-heading text-gray-500 font-normal text-base">Backend Developer</p>
+                            <p class="price text-gray-500 font-normal text-sm"> Remote • Full-time • $130,000 - $175,000</p>
+                         <div class="application-btn card-actions justify-start">
+                        <button class="status-btn btn text-[#002c5cFF]">NOT APPLIED</button>
                     </div>
-                     <p class="text-gray-500 font-normal text-sm">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+                     <p class="description text-gray-500 font-normal text-sm">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
                     <div class="flex gap-3">
-                        <button class="btn btn-outline btn-success">INTERVIEW</button>
-                    <button class="btn btn-outline btn-secondary">REJECTED</button>
+                        <button class="interview-btn btn btn-outline btn-success">INTERVIEW</button>
+                        <button class="reject-btn btn btn-outline btn-secondary">REJECTED</button>
                     </div>
                 </div>
                     </div>
                     <div class="card card-border bg-base-100">
                         <div class="card-body">
-                            <h2 class="card-title text-[#002c5cFF] font-bold">Innovation Labs</h2>
-                            <p class=" text-gray-500 font-normal text-base">UI/UX Engineer</p>
-                            <p class="text-gray-500 font-normal text-sm"> Remote • Full-time • $130,000 - $175,000</p>
-                         <div class="card-actions justify-start">
-                        <button class="btn text-[#002c5cFF]">NOT APPLIED</button>
+                            <h2 class="heading card-title text-[#002c5cFF] font-bold">Innovation Labs</h2>
+                            <p class="sub-heading text-gray-500 font-normal text-base">UI/UX Engineer</p>
+                            <p class="price text-gray-500 font-normal text-sm"> Remote • Full-time • $130,000 - $175,000</p>
+                         <div class="application-btn card-actions justify-start">
+                        <button class="status-btn btn text-[#002c5cFF]">NOT APPLIED</button>
                     </div>
-                     <p class="text-gray-500 font-normal text-sm">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+                     <p class="description text-gray-500 font-normal text-sm">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
                     <div class="flex gap-3">
-                        <button class="btn btn-outline btn-success">INTERVIEW</button>
-                    <button class="btn btn-outline btn-secondary">REJECTED</button>
+                        <button class="interview-btn btn btn-outline btn-success">INTERVIEW</button>
+                        <button class="reject-btn btn btn-outline btn-secondary">REJECTED</button>
                     </div>
                 </div>
                     </div>
                     <div class="card card-border bg-base-100">
                         <div class="card-body">
-                            <h2 class="card-title text-[#002c5cFF] font-bold">MegaCorp Solutions</h2>
-                            <p class=" text-gray-500 font-normal text-base">JavaScript Developer</p>
-                            <p class="text-gray-500 font-normal text-sm"> Remote • Full-time • $130,000 - $175,000</p>
-                         <div class="card-actions justify-start">
-                        <button class="btn text-[#002c5cFF]">NOT APPLIED</button>
+                            <h2 class="heading card-title text-[#002c5cFF] font-bold">MegaCorp Solutions</h2>
+                            <p class="sub-heading text-gray-500 font-normal text-base">JavaScript Developer</p>
+                            <p class="price text-gray-500 font-normal text-sm"> Remote • Full-time • $130,000 - $175,000</p>
+                         <div class="application-btn card-actions justify-start">
+                        <button class="status-btn btn text-[#002c5cFF]">NOT APPLIED</button>
                     </div>
-                     <p class="text-gray-500 font-normal text-sm">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+                     <p class="description text-gray-500 font-normal text-sm">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
                     <div class="flex gap-3">
-                        <button class="btn btn-outline btn-success">INTERVIEW</button>
-                    <button class="btn btn-outline btn-secondary">REJECTED</button>
+                        <button class="interview-btn btn btn-outline btn-success">INTERVIEW</button>
+                        <button class="reject-btn btn btn-outline btn-secondary">REJECTED</button>
                     </div>
                 </div>
                     </div>
                     <div class="card card-border bg-base-100">
                         <div class="card-body">
-                            <h2 class="card-title text-[#002c5cFF] font-bold">StartupXYZ</h2>
-                            <p class=" text-gray-500 font-normal text-base">Full Stack Engineer</p>
-                            <p class="text-gray-500 font-normal text-sm"> Remote • Full-time • $130,000 - $175,000</p>
-                         <div class="card-actions justify-start">
-                        <button class="btn text-[#002c5cFF]">NOT APPLIED</button>
+                            <h2 class="heading card-title text-[#002c5cFF] font-bold">StartupXYZ</h2>
+                            <p class="sub-heading text-gray-500 font-normal text-base">Full Stack Engineer</p>
+                            <p class="price text-gray-500 font-normal text-sm"> Remote • Full-time • $130,000 - $175,000</p>
+                         <div class="application-btn card-actions justify-start">
+                        <button class="status-btn btn text-[#002c5cFF]">NOT APPLIED</button>
                     </div>
-                     <p class="text-gray-500 font-normal text-sm">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+                     <p class="description text-gray-500 font-normal text-sm">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
                     <div class="flex gap-3">
-                        <button class="btn btn-outline btn-success">INTERVIEW</button>
-                    <button class="btn btn-outline btn-secondary">REJECTED</button>
+                        <button class="interview-btn btn btn-outline btn-success">INTERVIEW</button>
+                        <button class="reject-btn btn btn-outline btn-secondary">REJECTED</button>
                     </div>
                 </div>
                     </div>
                     <div class="card card-border bg-base-100">
                         <div class="card-body">
-                            <h2 class="card-title text-[#002c5cFF] font-bold">Mobile First Corp</h2>
-                            <p class=" text-gray-500 font-normal text-base">React Native Developer</p>
-                            <p class="text-gray-500 font-normal text-sm"> Remote • Full-time • $130,000 - $175,000</p>
-                         <div class="card-actions justify-start">
-                        <button class="btn text-[#002c5cFF]">NOT APPLIED</button>
+                            <h2 class="heading card-title text-[#002c5cFF] font-bold">Mobile First Corp</h2>
+                            <p class="sub-heading text-gray-500 font-normal text-base">React Native Developer</p>
+                            <p class=" price text-gray-500 font-normal text-sm"> Remote • Full-time • $130,000 - $175,000</p>
+                         <div class="application-btn card-actions justify-start">
+                        <button class="status-btn btn text-[#002c5cFF]">NOT APPLIED</button>
                     </div>
-                     <p class="text-gray-500 font-normal text-sm">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+                     <p class="description text-gray-500 font-normal text-sm">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
                     <div class="flex gap-3">
-                        <button class="btn btn-outline btn-success">Interview</button>
-                    <button class="btn btn-outline btn-secondary">REJECTED</button>
+                        <button class="interview-btn btn btn-outline btn-success">Interview</button>
+                        <button class="reject-btn btn btn-outline btn-secondary">REJECTED</button>
                     </div>
                 </div>
                     </div>
