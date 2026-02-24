@@ -30,8 +30,8 @@
   </head>
   <body class="hero bg-base-200 mx-auto">
     <header>
-        <h1 class="text-[#002c5cFF] text-3xl font-bold py-2">Job Application Tracker</h1>
-        <section class="grid grid-cols-3 gap-4">
+        <h1 class="text-[#002c5cFF] text-xl sm:text-2xl md:text-3xl font-bold py-2">Job Application Tracker</h1>
+        <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <div class="card bg-base-100 shadow-sm">
                   <div class="card-body">
                     <h4 class="card-title font-normal">Total</h2>
@@ -55,7 +55,7 @@
         <main>
             <section class="available-jobs">
                 <h3 class="text-[#002c5cFF] text-xl font-bold py-2">Availble Jobs</h3>
-                <div class="status-button pb-3">
+                <div class="status-button flex flex-wrap pb-3">
                     <button onclick="toggleBtn('all-filter-btn')" class="btn btn-primary" id="all-filter-btn">All</button>
                     <button onclick="toggleBtn('interview-filter-btn')" class="btn" id="interview-filter-btn">Interview</button>
                     <button onclick="toggleBtn('rejected-filter-btn')" class="btn" id="rejected-filter-btn">Rejected</button>
@@ -65,7 +65,7 @@
 
             </section>
             <section id="no-jobs" class="hidden">
-                <div class="hero bg-base-100 min-h-screen">
+                <div class="hero bg-base-100 min-h-[60vh]">
                      <div class="hero-content text-center">
                         <div class="max-w-screen">
                          <img class="mx-auto" src="images/nojobscard.png" alt="">   
@@ -86,12 +86,12 @@
                                 <i class="fa-regular fa-trash-can cursor-pointer"></i>
                             </div>
                             <p class="sub-heading text-gray-500 font-normal text-base">React Native Developer</p>
-                            <p class="price text-gray-500 font-normal text-sm"> Remote • Full-time • $130,000 - $175,000</p>
+                            <p class="price text-gray-500 font-normal text-sm break-words"> Remote • Full-time • $130,000 - $175,000</p>
                          <div class="application-btn card-actions justify-start">
                         <button class="status-btn btn text-[#002c5cFF]">NOT APPLIED</button>
                     </div>
                      <p class="description text-gray-500 font-normal text-sm">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
-                    <div class="flex gap-3">
+                    <div class="flex flex-col sm:flex-row gap-3">
                         <button class="interview-btn btn btn-outline btn-success">INTERVIEW</button>
                         <button class="reject-btn btn btn-outline btn-secondary">REJECTED</button>
                     </div>
