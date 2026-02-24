@@ -30,7 +30,7 @@
   </head>
   <body class="hero bg-base-200 mx-auto">
     <header>
-        <h1 class="text-[#002c5cFF] text-8 font-bold ">Job Application Tracker</h1>
+        <h1 class="text-[#002c5cFF] text-3xl font-bold py-2">Job Application Tracker</h1>
         <section class="grid grid-cols-3 gap-4">
             <div class="card bg-base-100 shadow-sm">
                   <div class="card-body">
@@ -54,8 +54,8 @@
 
         <main>
             <section class="available-jobs">
-                <h3 class="text-[#002c5cFF] text-sm font-bold">Availble Jobs</h3>
-                <div class="status-button">
+                <h3 class="text-[#002c5cFF] text-xl font-bold py-2">Availble Jobs</h3>
+                <div class="status-button pb-3">
                     <button onclick="toggleBtn('all-filter-btn')" class="btn btn-primary" id="all-filter-btn">All</button>
                     <button onclick="toggleBtn('interview-filter-btn')" class="btn" id="interview-filter-btn">Interview</button>
                     <button onclick="toggleBtn('rejected-filter-btn')" class="btn" id="rejected-filter-btn">Rejected</button>
@@ -67,22 +67,23 @@
             <section id="no-jobs" class="hidden">
                 <div class="hero bg-base-100 min-h-screen">
                      <div class="hero-content text-center">
-                        <div class="max-w-md">
+                        <div class="max-w-screen">
                          <img class="mx-auto" src="images/nojobscard.png" alt="">   
                         <h3 class="text-2xl font-bold text-center text-[#002c5cFF]">No jobs available</h3>
                          <p class="py-2 text-gray-500">
                             Check back soon for new job opportunities
                         </p>
-    </div>
-  </div>
-</div>
+                </div>
+            </div>
+        </div>
             </section>
+            
             <section id="jobs-card" class="space-y-5">
                     <div class="card card-border bg-base-100">
                         <div class="card-body">
                             <div class="flex justify-between">
                                 <h2 class="heading card-title text-[#002c5cFF] font-bold">Mobile First Corp</h2>
-                                <i class="fa-regular fa-trash-can"></i>
+                                <i class="fa-regular fa-trash-can cursor-pointer"></i>
                             </div>
                             <p class="sub-heading text-gray-500 font-normal text-base">React Native Developer</p>
                             <p class="price text-gray-500 font-normal text-sm"> Remote • Full-time • $130,000 - $175,000</p>
@@ -100,7 +101,7 @@
                         <div class="card-body">
                             <div class="flex justify-between">
                                 <h2 class="heading card-title text-[#002c5cFF] font-bold">WebFlow Agency</h2>
-                                <i class="fa-regular fa-trash-can"></i>
+                                <i class="fa-regular fa-trash-can cursor-pointer"></i>
                             </div>
                             <p class="sub-heading text-gray-500 font-normal text-base">Web Designer & Developer</p>
                             <p class="price text-gray-500 font-normal text-sm"> Los Angeles, CA
@@ -122,7 +123,7 @@ Part-time
                         <div class="card-body">
                             <div class="flex justify-between">
                                 <h2 class="heading card-title text-[#002c5cFF] font-bold">DataViz Solutions</h2>
-                                <i class="fa-regular fa-trash-can"></i>
+                                <i class="fa-regular fa-trash-can cursor-pointer"></i>
                             </div>
                             <p class="sub-heading text-gray-500 font-normal text-base">Data Visualization Specialist</p>
                             <p class="price text-gray-500 font-normal text-sm"> Boston, MA 
@@ -144,7 +145,7 @@ Part-time
                         <div class="card-body">
                             <div class="flex justify-between">
                                 <h2 class="heading card-title text-[#002c5cFF] font-bold">CloudFirst Inc</h2>
-                                <i class="fa-regular fa-trash-can"></i>
+                                <i class="fa-regular fa-trash-can cursor-pointer"></i>
                             </div>
                             <p class="sub-heading text-gray-500 font-normal text-base">Backend Developer</p>
                             <p class="price text-gray-500 font-normal text-sm"> Remote • Full-time • $130,000 - $175,000</p>
@@ -162,7 +163,7 @@ Part-time
                         <div class="card-body">
                             <div class="flex justify-between">
                                  <h2 class="heading card-title text-[#002c5cFF] font-bold">Innovation Labs</h2>
-                                 <i class="fa-regular fa-trash-can"></i>
+                                 <i class="fa-regular fa-trash-can cursor-pointer"></i>
                             </div>
                             <p class="sub-heading text-gray-500 font-normal text-base">UI/UX Engineer</p>
                             <p class="price text-gray-500 font-normal text-sm"> Remote • Full-time • $130,000 - $175,000</p>
@@ -180,7 +181,7 @@ Part-time
                         <div class="card-body">
                             <div class="flex justify-between">
                                 <h2 class="heading card-title text-[#002c5cFF] font-bold">MegaCorp Solutions</h2>
-                                <i class="fa-regular fa-trash-can"></i>
+                                <i class="fa-regular fa-trash-can cursor-pointer"></i>
                             </div>
                             <p class="sub-heading text-gray-500 font-normal text-base">JavaScript Developer</p>
                             <p class="price text-gray-500 font-normal text-sm"> Remote • Full-time • $130,000 - $175,000</p>
@@ -198,7 +199,7 @@ Part-time
                         <div class="card-body">
                             <div class="flex justify-between">
                                  <h2 class="heading card-title text-[#002c5cFF] font-bold">StartupXYZ</h2>
-                                 <i class="fa-regular fa-trash-can"></i>
+                                 <i class="fa-regular fa-trash-can cursor-pointer"></i>
                             </div>
                             <p class="sub-heading text-gray-500 font-normal text-base">Full Stack Engineer</p>
                             <p class="price text-gray-500 font-normal text-sm"> Remote • Full-time • $130,000 - $175,000</p>
@@ -216,7 +217,7 @@ Part-time
                         <div class="card-body">
                             <div class="flex justify-between">
                                 <h2 class="heading card-title text-[#002c5cFF] font-bold">Mobile First Corp</h2>
-                                <i class="fa-regular fa-trash-can"></i>
+                                <i class="fa-regular fa-trash-can cursor-pointer"></i>
                             </div>
                             <p class="sub-heading text-gray-500 font-normal text-base">React Native Developer</p>
                             <p class=" price text-gray-500 font-normal text-sm"> Remote • Full-time • $130,000 - $175,000</p>

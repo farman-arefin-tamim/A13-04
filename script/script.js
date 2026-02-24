@@ -30,6 +30,7 @@ function allCount(){
 
 allCount();
 function toggleBtn(id){
+    cuurentStates = id;
     allFilterBtn.classList.remove('btn-primary');
     interviewFilterBtn.classList.remove('btn-primary');
     rejectedFilterBtn.classList.remove('btn-primary');
@@ -43,10 +44,12 @@ function toggleBtn(id){
     //selected.classList.remove('btn');
     selected.classList.add('btn-primary');
     if(id == 'interview-filter-btn'){
-        console.log(interviewList.length)
+        //console.log(interviewList.length)
         if(interviewList.length>0){
+            noJobs.classList.add('hidden');
              jobsCard.classList.add('hidden');
              filteredSection.classList.remove('hidden');
+             renderInterview();
         }else{
             noJobs.classList.remove('hidden');
             jobsCard.classList.add('hidden');
@@ -59,6 +62,19 @@ function toggleBtn(id){
     }else if(id == 'all-filter-btn'){
         jobsCard.classList.remove('hidden');
         filteredSection.classList.add('hidden');
+        noJobs.classList.add('hidden');
+    }
+    else if(id == 'rejected-filter-btn'){
+        if(rejectedList.length > 0){
+            noJobs.classList.add('hidden');
+            jobsCard.classList.add('hidden');
+            filteredSection.classList.remove('hidden');
+            renderRejected();
+        }else{
+            noJobs.classList.remove('hidden');
+            jobsCard.classList.add('hidden');
+            filteredSection.classList.add('hidden');
+        }
     }
 }
 
@@ -136,7 +152,7 @@ headSection.addEventListener('click',function(event){
       
     }
     interviewList = interviewList.filter(item=>item.heading!=cardInfo.heading)
-    if(cuurentStates=='interview-filter-btn'){
+    if(cuurentStates == 'interview-filter-btn'){
         renderInterview();
     }
     // console.log(cardInfo);
@@ -151,6 +167,7 @@ headSection.addEventListener('click',function(event){
         const parentNode = event.target.closest('.card');
         //console.log(parentNode);
         parentNode.remove();
+        total.innerText = jobsCard.children.length;
     }
 
 })
