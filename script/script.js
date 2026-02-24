@@ -19,7 +19,7 @@ const rejectedFilterBtn = document.getElementById("rejected-filter-btn");
  const filteredSection = document.getElementById('filtered-section');
 
 function allCount(){
-    total.innerText=jobsCard.children.length;
+    total.innerText = jobsCard.children.length;
     interview.innerText=interviewList.length;
     rejected.innerText=rejectedList.length;
 }
@@ -52,7 +52,7 @@ headSection.addEventListener('click',function(event){
     
     console.log(event.target.classList.contains('interview-btn'));
     if(event.target.classList.contains('interview-btn')){
-        const firstNode = event.target.parentNode.parentNode.parentNode;
+    const firstNode = event.target.parentNode.parentNode.parentNode;
     //console.log(parenNode);
 
     const heading = firstNode.querySelector('.heading').innerText;
@@ -65,6 +65,7 @@ headSection.addEventListener('click',function(event){
     //console.log(description);
 
    
+     firstNode.querySelector('.status-btn').innerText = 'Applied' ;
 
     const cardInfo = {
         heading,
@@ -73,17 +74,56 @@ headSection.addEventListener('click',function(event){
         rejectBtn,
         price,
         description,
-        statusBtn
+        statusBtn:'Applied',
     }
 
     const nameExist = interviewList.find(item =>item.heading == cardInfo.heading);
-    firstNode.querySelector('.status-btn').innerText = 'Applied'
+   
     if(!nameExist){
         interviewList.push(cardInfo);
+      
     }
 
     // console.log(cardInfo);
+    allCount();
     renderInterview();
+    }
+    else if(event.target.classList.contains('rejected-btn')){
+    const firstNode = event.target.parentNode.parentNode.parentNode;
+    //console.log(parenNode);
+
+    const heading = firstNode.querySelector('.heading').innerText;
+    const subHeading = firstNode.querySelector('.sub-heading').innerText;
+    const price = firstNode.querySelector('.price').innerText;
+    const description = firstNode.querySelector('.description').innerText;
+    const interviewBtn = firstNode.querySelector('.interview-btn').innerText;
+    const rejectBtn = firstNode.querySelector('.reject-btn').innerText;
+    const statusBtn = firstNode.querySelector('.status-btn').innerText;
+    //console.log(description);
+
+   
+     firstNode.querySelector('.status-btn').innerText = 'Rejected' ;
+
+    const cardInfo = {
+        heading,
+        subHeading,
+        interviewBtn,
+        rejectBtn,
+        price,
+        description,
+        statusBtn:'Rejected',
+    }
+
+    const nameExist = rejectedList.find(item =>item.heading == cardInfo.heading);
+   
+    if(!nameExist){
+        rejectedList.push(cardInfo);
+      
+    }
+
+    // console.log(cardInfo);
+    allCount();
+    renderRejected();
     }
 
 })
@@ -93,22 +133,22 @@ function renderInterview(){
 
     for(let interview of interviewList){
         
-        console.log(interview);
+        //console.log(interview);
         let div = document.createElement('div');
         div.className = 'card card-border bg-base-100';
 
         div.innerHTML = `
             <div class="card-body">
-                            <h2 class="heading card-title text-[#002c5cFF] font-bold">Mobile First Corp</h2>
-                            <p class="sub-heading text-gray-500 font-normal text-base">React Native Developer</p>
-                            <p class="price text-gray-500 font-normal text-sm"> Remote • Full-time • $130,000 - $175,000</p>
+                            <h2 class="heading card-title text-[#002c5cFF] font-bold">${interview.heading}</h2>
+                            <p class="sub-heading text-gray-500 font-normal text-base">${interview.subHeading}</p>
+                            <p class="price text-gray-500 font-normal text-sm">${interview.price}</p>
                          <div class="application-btn card-actions justify-start">
-                        <button class="btn text-[#002c5cFF]">NOT APPLIED</button>
+                        <button class="status-btn btn text-[#002c5cFF]">${interview.statusBtn}</button>
                     </div>
-                     <p class="description text-gray-500 font-normal text-sm">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+                     <p class="description text-gray-500 font-normal text-sm">${interview.description}</p>
                     <div class="flex gap-3">
-                        <button class="btn btn-outline btn-success">INTERVIEW</button>
-                        <button class="btn btn-outline btn-secondary">REJECTED</button>
+                        <button class="btn btn-outline btn-success">${interview.interviewBtn}</button>
+                        <button class="btn btn-outline btn-secondary">${interview.rejectBtn}</button>
                     </div>
                 </div>
         `
@@ -116,4 +156,32 @@ function renderInterview(){
     }
 }
 
+
+function renderRejected(){
+    filteredSection.innerHTML = '';
+
+    for(let reject of rejectedList){
+        
+        //console.log(interview);
+        let div = document.createElement('div');
+        div.className = 'card card-border bg-base-100';
+
+        div.innerHTML = `
+            <div class="card-body">
+                            <h2 class="heading card-title text-[#002c5cFF] font-bold">${reject.heading}</h2>
+                            <p class="sub-heading text-gray-500 font-normal text-base">${reject.subHeading}</p>
+                            <p class="price text-gray-500 font-normal text-sm">${reject.price}</p>
+                         <div class="application-btn card-actions justify-start">
+                        <button class="status-btn btn text-[#002c5cFF]">${reject.statusBtn}</button>
+                    </div>
+                     <p class="description text-gray-500 font-normal text-sm">${reject.description}</p>
+                    <div class="flex gap-3">
+                        <button class="btn btn-outline btn-success">${reject.interviewBtn}</button>
+                        <button class="btn btn-outline btn-secondary">${reject.rejectBtn}</button>
+                    </div>
+                </div>
+        `
+        filteredSection.appendChild(div);
+    }
+}
 
