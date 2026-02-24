@@ -5,6 +5,9 @@ let total = document.getElementById("total");
 let interview = document.getElementById("interview");
 let rejected = document.getElementById("rejected");
 
+let cuurentStates = 'all-filter-btn';
+
+
 const jobsCard = document.getElementById("jobs-card");
 
 const headSection = document.querySelector('header');
@@ -41,14 +44,14 @@ function toggleBtn(id){
     selected.classList.add('btn-primary');
     if(id == 'interview-filter-btn'){
         console.log(interviewList.length)
-        // if(interviewList.length>0){
-        //      jobsCard.classList.add('hidden');
-        //      filteredSection.classList.remove('hidden');
-        // }else{
-        //     noJobs.classList.remove('hidden');
-        //     jobsCard.classList.remove('hidden');
-        //     filteredSection.classList.add('hidden');
-        // }
+        if(interviewList.length>0){
+             jobsCard.classList.add('hidden');
+             filteredSection.classList.remove('hidden');
+        }else{
+            noJobs.classList.remove('hidden');
+            jobsCard.classList.add('hidden');
+            filteredSection.classList.add('hidden');
+        }
 
         // jobsCard.classList.add('hidden');
         // filteredSection.classList.remove('hidden');
@@ -100,7 +103,7 @@ headSection.addEventListener('click',function(event){
     allCount();
     renderInterview();
     }
-    else if(event.target.classList.contains('rejected-btn')){
+    else if(event.target.classList.contains('reject-btn')){
     const firstNode = event.target.parentNode.parentNode.parentNode;
     //console.log(parenNode);
 
@@ -133,12 +136,21 @@ headSection.addEventListener('click',function(event){
       
     }
     interviewList = interviewList.filter(item=>item.heading!=cardInfo.heading)
-    if(cuurentStates=='rejected-filter-btn'){
-        renderRejected();
+    if(cuurentStates=='interview-filter-btn'){
+        renderInterview();
     }
     // console.log(cardInfo);
     allCount();
     //renderRejected();
+    }
+
+
+
+    //Delete functionality
+    else if(event.target.classList.contains('fa-trash-can')){
+        const parentNode = event.target.closest('.card');
+        //console.log(parentNode);
+        parentNode.remove();
     }
 
 })
@@ -162,8 +174,8 @@ function renderInterview(){
                     </div>
                      <p class="description text-gray-500 font-normal text-sm">${interview.description}</p>
                     <div class="flex gap-3">
-                        <button class="btn btn-outline btn-success">${interview.interviewBtn}</button>
-                        <button class="btn btn-outline btn-secondary">${interview.rejectBtn}</button>
+                        <button class="interview-btn btn btn-outline btn-success">${interview.interviewBtn}</button>
+                        <button class="reject-btn btn btn-outline btn-secondary">${interview.rejectBtn}</button>
                     </div>
                 </div>
         `
@@ -202,4 +214,11 @@ function renderRejected(){
 
 
 
-allFilterBtn.addEventListener()
+// allFilterBtn.addEventListener('click',function(event){
+//        if(event.target.matches('.fa-trash-can')){
+//             // event.target.parentNode.parentNode.
+
+//             let filteredSection = document.querySelector('.filterd-section');
+//             console.log(filteredSection);
+//        }
+// })
