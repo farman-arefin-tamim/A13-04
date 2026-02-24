@@ -8,6 +8,7 @@ let rejected = document.getElementById("rejected");
 const jobsCard = document.getElementById("jobs-card");
 
 const headSection = document.querySelector('header');
+const noJobs = document.getElementById('no-jobs');
 // console.log(headSection);
 
 
@@ -35,12 +36,23 @@ function toggleBtn(id){
     rejectedFilterBtn.classList.add('btn');
 
     const selected = document.getElementById(id);
-    console.log(selected);
+    //console.log(selected);
     //selected.classList.remove('btn');
     selected.classList.add('btn-primary');
     if(id == 'interview-filter-btn'){
-        jobsCard.classList.add('hidden');
-        filteredSection.classList.remove('hidden');
+        console.log(interviewList.length)
+        // if(interviewList.length>0){
+        //      jobsCard.classList.add('hidden');
+        //      filteredSection.classList.remove('hidden');
+        // }else{
+        //     noJobs.classList.remove('hidden');
+        //     jobsCard.classList.remove('hidden');
+        //     filteredSection.classList.add('hidden');
+        // }
+
+        // jobsCard.classList.add('hidden');
+        // filteredSection.classList.remove('hidden');
+       
     }else if(id == 'all-filter-btn'){
         jobsCard.classList.remove('hidden');
         filteredSection.classList.add('hidden');
@@ -50,7 +62,7 @@ function toggleBtn(id){
 
 headSection.addEventListener('click',function(event){
     
-    console.log(event.target.classList.contains('interview-btn'));
+    //console.log(event.target.classList.contains('interview-btn'));
     if(event.target.classList.contains('interview-btn')){
     const firstNode = event.target.parentNode.parentNode.parentNode;
     //console.log(parenNode);
@@ -120,10 +132,13 @@ headSection.addEventListener('click',function(event){
         rejectedList.push(cardInfo);
       
     }
-
+    interviewList = interviewList.filter(item=>item.heading!=cardInfo.heading)
+    if(cuurentStates=='rejected-filter-btn'){
+        renderRejected();
+    }
     // console.log(cardInfo);
     allCount();
-    renderRejected();
+    //renderRejected();
     }
 
 })
@@ -185,3 +200,6 @@ function renderRejected(){
     }
 }
 
+
+
+allFilterBtn.addEventListener()
